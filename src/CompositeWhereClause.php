@@ -4,7 +4,7 @@ namespace WPQueryBuilder;
 class CompositeWhereClause implements WhereClause {
 
 	private $whereClauses = [];
-	private $bindngs = [];
+	private $bindings = [];
 
 	public function __construct(){
 		//$this->whereClauses = func_get_args();
