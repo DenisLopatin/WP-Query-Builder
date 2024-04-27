@@ -3,6 +3,7 @@ namespace WPQueryBuilder;
 
 class WhereInClause implements WhereClause {
 
+	private $bindings = [];
 	private $column;
 	private $value1;
 	private $value2;
