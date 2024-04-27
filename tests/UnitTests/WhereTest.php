@@ -224,6 +224,19 @@ final class WhereTest extends TestCase {
 			->get();
 	}
 
+	public function testWithWhereNotInCondition(){
+		$this->wpdb->expects($this->once())->method('prepare')->with(
+			"SELECT * FROM tablename WHERE field NOT IN (%s, %s, %s);",
+			['foo', 'bar', 'baz']
+		);
+
+		$qb = new Query($this->wpdb);
+		$qb->select()
+		   ->from("tablename")
+		   ->whereNotIn("field", ['foo', 'bar', 'baz'])
+		   ->get();
+	}
+
 	public function testSearchSingleColumn(){
 		$this->wpdb->expects($this->once())->method('prepare')->with(
 			"SELECT * FROM tablename WHERE (field LIKE %s) AND field2 = %s;",

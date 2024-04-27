@@ -112,13 +112,13 @@ $qb->select()->from("wp_users")->whereIn("ID", [1, 2, 3])->get();
 //SELECT * FROM wp_users WHERE ID IN (1, 2, 3);
 ```
 
-### Where column value IN
+### Where column value NOT IN
 
-Adds a `WHERE` clause, matching records which have a column value in the array provided:
+Adds a `WHERE` clause by matching records that do not have a column value in the provided array:
 
 ```php
-$qb->select()->from("wp_users")->whereIn("ID", [1, 2, 3])->get();
-//SELECT * FROM wp_users WHERE ID IN (1, 2, 3);
+$qb->select()->from("wp_users")->whereNotIn("ID", [1, 2, 3])->get();
+//SELECT * FROM wp_users WHERE ID NOT IN (1, 2, 3);
 ```
 
 

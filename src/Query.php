@@ -252,6 +252,11 @@ class Query{
 		return $this;
 	}
 
+	public function whereNotIn($column, $values) {
+		$this->wheres->andWhere(new WhereNotInClause($column,$values));
+		return $this;
+	}
+
 	public function search($fieldOrFields, $searchTerm){
 		$search = new CompositeWhereClause();
 		$fields = is_array($fieldOrFields) ? $fieldOrFields : [$fieldOrFields];
